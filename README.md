@@ -130,16 +130,16 @@ Predict the **selling price of used cars** listed on [CarDekho.com](https://www.
 
 ### Model Benchmarking Results
 
-| Model | Train R² | Test R² | Test RMSE |
-|-------|---------|--------|----------|
-| Linear Regression | 0.6218 | 0.6645 | 5,02,543 |
-| Lasso | 0.6218 | 0.6645 | 5,02,542 |
-| Ridge | 0.6218 | 0.6645 | 5,02,533 |
-| Decision Tree | — | — | — |
-| KNN (default) | — | — | — |
-| **Random Forest** | — | — | — |
+| Model | Train RMSE | Test RMSE | Train MAE | Test MAE | Train R² | Test R² |
+|-------|-----------|----------|----------|---------|---------|--------|
+| Linear Regression | 5,53,855 | 5,02,543 | 2,68,101 | 2,79,618 | 0.6218 | 0.6645 |
+| Lasso | 5,53,855 | 5,02,542 | 2,68,099 | 2,79,614 | 0.6218 | 0.6645 |
+| Ridge | 5,53,856 | 5,02,533 | 2,68,059 | 2,79,557 | 0.6218 | 0.6645 |
+| KNN (default) | 3,25,873 | 2,53,024 | 91,425 | 1,12,526 | 0.8691 | 0.9150 |
+| Decision Tree | 20,797 | 3,07,402 | 5,164 | 1,25,825 | 0.9995 | 0.8745 |
+| **Random Forest** | **1,39,404** | **2,30,109** | **39,945** | **1,01,816** | **0.9760** | **0.9297** |
 
-> Linear, Lasso, and Ridge all plateaued at R² ≈ 0.66, confirming that car pricing involves non-linear relationships not captured by linear models.
+> Linear, Lasso, and Ridge all plateaued at R² ≈ 0.66, confirming that car pricing involves non-linear relationships not captured by linear models. Decision Tree severely overfits (Train R² = 0.9995 vs Test R² = 0.8745), while Random Forest strikes the best balance between fit and generalisation.
 
 ### Hyperparameter Tuning (RandomizedSearchCV — 3-fold CV, 100 iterations)
 
